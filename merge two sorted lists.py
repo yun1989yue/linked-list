@@ -37,7 +37,7 @@ class Solution:
         
         '''
         Method: recursion
-        Complexity: O(m+n) time O(1) space
+        Complexity: O(m+n) time O(m+n) space
         '''
         if l1 and l2:
             head = l1 if l1.val < l2.val else l2
