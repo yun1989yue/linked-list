@@ -2,7 +2,11 @@ class Solution:
     # @param {ListNode} l1
     # @param {ListNode} l2
     # @return {ListNode}
-    def addTwoNumbers(self, l1, l2): #O(m+n) time O(1) space
+    def addTwoNumbers(self, l1, l2): 
+        ''' 
+        Method: two pointers with difference n 
+        Complexity: O(m+n) time O(1) space 
+        '''
         carry = 0
         temphead = ListNode(-1)#tempHead is convenient when the head of res is not determined 
         temp = temphead
