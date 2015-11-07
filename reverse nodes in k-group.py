@@ -43,3 +43,30 @@ class Solution:
             pre.next = cur
             start = pre
         return tempHead.next
+'''
+recursion
+'''
+class Solution(object):
+    def reverseKGroup(self, head, k):
+        """
+        :type head: ListNode
+        :type k: int
+        :rtype: ListNode
+        """
+        if not head or not head.next or k == 1:
+            return head
+        temp = head
+        for i in xrange(k-1): # notice that if length of list is k, you need to reverse but next recursice node is None
+            if not temp.next:
+                return head
+            else:
+                temp = temp.next
+        temp = temp.next
+        previous = self.reverseKGroup(temp, k)
+        current = head
+        for i in xrange(k):
+            temp = current
+            current = current.next
+            temp.next = previous
+            previous = temp
+        return previous
