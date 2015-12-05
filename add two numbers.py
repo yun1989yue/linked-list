@@ -21,16 +21,14 @@ class Solution:
         t1 = l1#use reference to save original linked lists
         t2 = l2
         while t1 or t2 or carry:
-            Sum = 0
+            Sum = carry
             if t1:
                 Sum += t1.val
                 t1 = t1.next
             if t2:
                 Sum += t2.val
                 t2 = t2.next
-            Sum += carry
             carry = Sum / 10
-            Sum %= 10
-            temp.next = ListNode(Sum)
+            temp.next = ListNode(Sum%10)
             temp = temp.next
         return temphead.next
