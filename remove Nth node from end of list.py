@@ -26,11 +26,11 @@ class Solution:
         tempHead = ListNode(-1)
         tempHead.next = head
         temp = tempHead
-        for i in xrange(n):
+        for i in xrange(n): # move latter pointer n steps forward
             temp = temp.next
         start = tempHead
-        while temp.next:
+        while temp.next: # find nth node from the end
             start = start.next
             temp = temp.next
-        start.next = start.next.next
+        start.next = start.next.next # delete nth node
         return tempHead.next
