@@ -22,3 +22,19 @@ class Solution(object):
             else:
                 temp = temp.next
         return Head.next
+
+'''
+Simplify
+'''
+class Solution(object):
+    def deleteDuplicates(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        current = head
+        while current and current.next: # boundary cases considered, and must verify current exists, for input [1,1] u will get None 
+            while current.next and current.val == current.next.val: # verify exists of current.next
+                current.next = current.next.next
+            current = current.next
+        return head
