@@ -36,3 +36,9 @@ class Solution(object):
             head = head.next
             temp = temp.next
         return dummy.next
+
+'''
+Another method is to duplicate each node just follow its original node in original list, if u create a new node need to point to 
+another random node, just point to/create a node after the original corresponding node, then pick the out can restore the original 
+list 
+'''
