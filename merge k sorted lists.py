@@ -1,3 +1,15 @@
+'''
+Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
+'''
+'''
+M1: merge each two lists iteratively, need 2n + 3n + ... + kn ~ O(k^2 * n) time
+'''
+'''
+M2: each time compare k lists and add 1 node to res, so O(k) time for kn nodes O(k^2 * n) time
+'''
+''' 
+M3: Heap O(kn) time O(k) space
+'''
 from heapq import heappush,heappop,heapify
 class Solution(object):
     def mergeKLists(self, lists):
