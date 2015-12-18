@@ -9,16 +9,16 @@ class Solution:
     # @param {ListNode} head
     # @param {integer} k
     # @return {ListNode}
-    def rotateRight(self, head, k): # notice that k may be larger than lenght of list
+    def rotateRight(self, head, k): # notice that k may be larger than length of list
         if not head or not head.next:
             return head
         temp = head
         l = 0
-        while temp:
+        while temp: # find length of list
             l += 1
             temp = temp.next
         k %= l
-        if k == 0:
+        if k == 0: 
             return head
         end = head
         for i in xrange(k):
