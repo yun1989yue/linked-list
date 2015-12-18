@@ -15,17 +15,16 @@ class Solution:
         Method: Brute Froce
         Complexity: O(n) time O(1) space
         '''
-        tempHead = ListNode(-1)
-        previous = tempHead
-        tempHead.next = head
-        current = head
-        while current and current.next:
-            previous.next = current.next
-            current.next = previous.next.next
-            previous.next.next = current
-            previous = current
-            current = current.next
-        return tempHead.next
+        dummy = ListNode(-1) # head may be changed
+        dummy.next = head
+        cur = dummy
+        while cur.next and cur.next.next: 
+            temp = cur
+            cur = cur.next
+            temp.next = cur.next
+            cur.next = cur.next.next
+            temp.next.next = cur
+        return dummy.next
         
         '''
         Method: Recursion
