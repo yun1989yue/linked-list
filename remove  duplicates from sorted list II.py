@@ -12,18 +12,17 @@ class Solution:
     def deleteDuplicates(self, head):
         if not head or not head.next:
             return head
-        tempHead = ListNode(float('Inf'))
-        tempHead.next = head
-        temp = tempHead
-        while temp.next and temp.next.next:
-            if temp.next.val == temp.next.next.val:
-                key = temp.next.val
-                temp.next = temp.next.next.next
-                while temp.next and key == temp.next.val:
-                    temp.next = temp.next.next
+        dummy = ListNode(head.val - 1)
+        dummy.next = head
+        current = dummy
+        while current.next and current.next.next:
+            if current.next.val == current.next.next.val:
+                explore = current.next.val
+                while current.next and current.next.val == explore:
+                    current.next = current.next.next
             else:
-                temp = temp.next
-        return tempHead.next
+                current = current.next
+        return dummy.next
         
   '''
   recursion
