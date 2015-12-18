@@ -11,20 +11,16 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        if not head or not head.next:
-            return head
-        Head = ListNode(head.val-1)
-        temp = Head
-        Head.next = head
-        while temp.next:
+        temp = head
+        while temp and temp.next:
             if temp.val == temp.next.val:
                 temp.next = temp.next.next
             else:
                 temp = temp.next
-        return Head.next
+        return head
 
 '''
-Simplify
+nest loop
 '''
 class Solution(object):
     def deleteDuplicates(self, head):
