@@ -7,7 +7,7 @@ class Solution(object):
         if not head:
             return 
         if not head.next:
-            return TreeNode(head.val)
+            return TreeNode(head.val) # needs to tranform ListNode -> TreeNode 
         # here we get the middle point,
         # even case, like '1234', slow points to '2',
         # '3' is root, '12' belongs to left, '4' is right
