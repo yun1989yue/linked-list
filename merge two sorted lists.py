@@ -11,29 +11,24 @@ class Solution:
         Method: Brute Force
         Complexity: O(m+n) time O(1) space
         '''
-        head = ListNode(-1)
-        temp = head
+        dummy = ListNode(-1)
+        temp = dummy
         while l1 or l2:
             if l1 and l2:
                 if l1.val < l2.val:
                     temp.next = l1
                     l1 = l1.next
-                    temp = temp.next
                 else:
                     temp.next = l2
                     l2 = l2.next
-                    temp = temp.next
-            elif l1:
-                while l1:
-                    temp.next = l1
-                    l1 = l1.next
-                    temp = temp.next
+            elif l1: # if not l2, add l1 to the end of res
+                temp.next = l1
+                l1 = None
             else:
-                while l2:
-                    temp.next = l2
-                    l2 = l2.next
-                    temp = temp.next
-        return head.next
+                temp.next = l2
+                l2 = None
+            temp = temp.next
+        return dummy.next
         
         '''
         Method: recursion
@@ -51,13 +46,12 @@ class Solution:
         '''
         concise recursion code
         '''
-        if not l1:
-            return l2
-        if not l2 :
-            return l1
-        if l1.val < l2.val:
-            l1.next = self.mergeTwoLists(l1.next, l2)
-            return l1
+        if l1 and l2:
+            if l1.val < l2.val:
+                l1.next = self.mergeTwoLists(l1.next, l2)
+                return l1
+            else:
+                l2.next = self.mergeTwoLists(l1, l2.next)
+                return l2
         else:
-            l2.next = self.mergeTwoLists(l1, l2.next)
-            return l2
+            return l1 if l1 else l2
