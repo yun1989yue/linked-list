@@ -7,6 +7,9 @@ For example,
 Given 1->4->3->2->5->2 and x = 3,
 return 1->2->2->4->3->5.
 '''
+'''
+Method: Brute Force O(n) time O(n) space
+'''
 class Solution():
     def partition(self, head, x): # notice that the title requests preservation of original list
         small = ListNode(x-1)
@@ -27,11 +30,14 @@ class Solution():
         return small.next
 
 '''
-In-place Method
+In-place Method, O(n) time O(1) space
+1) find 1st node that has val >= x, set pointer BEFORE it
+2) once a node with val < x found after 1), insert it after the pointer and update the pointer
 '''
 class Solution():
     def partition(self, head, x):
-        tempHead = ListNode(x-1)
+        tempHead = ListNode(x-1) # set val as x-1, so we can start current from tempHead, otherwise we need to discuss whether current 
+                                 # exists before using its val
         tempHead.next = head
         start = tempHead
         current = tempHead
