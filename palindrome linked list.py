@@ -14,19 +14,19 @@ class Solution(object):
             return True
         slow = head
         fast = head.next
-        while fast and fast.next:
+        while fast and fast.next: # find middle node
             slow = slow.next
             fast = fast.next.next
         current = slow.next
         slow.next = None
         pre = None
-        while current:
+        while current: # reverse latter half list
             temp = current
             current = current.next
             temp.next = pre
             pre = temp
         temp = head
-        while pre:
+        while pre: # compare palindrome
             if pre.val != temp.val:
                 return False
             pre = pre.next
