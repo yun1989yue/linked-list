@@ -22,6 +22,7 @@ Error:
 2) temp node needs to judge whether to update or not
 3) check whether node exists before calling its val or next
 4) careful about rotation, if rotate k times, k maybe longer than length l of list, need to find k%l 
+5) careful about possible loops created by wrong or missed updation
 
 skills:
 1) dummy node can clarify the code if the head of res is not determined
