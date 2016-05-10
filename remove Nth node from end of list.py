@@ -21,9 +21,7 @@ class Solution:
         Method: two pointers with difference n
         Complexity: O(n) time O(1) space
         '''
-        if n == 0:
-            return head
-        tempHead = ListNode(-1)
+        tempHead = ListNode(-1) # Boundary case, n = len(head), then 1st node will be rmed
         tempHead.next = head
         temp = tempHead
         for i in xrange(n): # move latter pointer n steps forward
